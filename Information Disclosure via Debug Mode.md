@@ -12,7 +12,7 @@
 ---
 
 ## Technical Details
-
+![Screenshot showing hardcoded SECRET_KEY in settings.py](secret_key_proof.png)
 ### Location
 - **File**: `newsportal/onps/onps/settings.py`
 - **Line Number**: 27
