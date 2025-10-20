@@ -7,6 +7,7 @@
 **CVSS 3.1 Score**: 7.5  
 **Discovery Date**: October 20, 2025  
 **Affected Component**: News Portal Django Application
+**Link:** https://phpgurukul.com/news-portal-using-python-django-and-mysql/#google_vignette
 
 ---
 
@@ -233,6 +234,7 @@ DATABASES: {
 ## Evidence of Vulnerability
 
 ### Discovery Method
+![Screenshot showing debugging in settings.py](debug.png)
 
 Automated security scanning revealed:
 
