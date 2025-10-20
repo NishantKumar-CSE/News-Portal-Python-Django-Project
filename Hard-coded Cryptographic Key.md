@@ -113,6 +113,7 @@ The SECRET_KEY in Django is used for:
 
 ### Session Cookie Forgery
 
+![Screenshot showing Successfull_sessionforge_attack in settings.py](sessionforge.png)
 ```python
 #!/usr/bin/env python3
 """
