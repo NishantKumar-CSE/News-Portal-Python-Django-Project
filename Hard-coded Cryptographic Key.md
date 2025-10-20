@@ -1,4 +1,4 @@
-# Security Vulnerability Report #1: Hardcoded Insecure Django SECRET_KEY
+# Security Vulnerability Report: Hardcoded Insecure Django SECRET_KEY
 
 ## Vulnerability Overview
 
@@ -6,7 +6,8 @@
 **Severity**: CRITICAL  
 **CVSS 3.1 Score**: 9.8  
 **Discovery Date**: October 20, 2025  
-**Affected Component**: News Portal Django Application
+**Affected Component**: News Portal Django Application 
+**Link**: https://phpgurukul.com/news-portal-using-python-django-and-mysql/#google_vignette
 
 ---
 
