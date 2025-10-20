@@ -163,7 +163,7 @@ generator = PasswordResetTokenGenerator()
 ### Discovery Method
 Automated security scanning using custom evidence collection script revealed:
 
-![Screenshot showing hardcoded SECRET_KEY in settings.py](secret_key.png)
+![Screenshot showing hardcoded SECRET_KEY in settings.py](secret_key_proof.png)
 
 ```bash
 grep -nR "SECRET_KEY" newsportal > evidence-secret-grep.txt
