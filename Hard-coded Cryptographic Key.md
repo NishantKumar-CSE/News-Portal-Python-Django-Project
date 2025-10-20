@@ -162,7 +162,7 @@ generator = PasswordResetTokenGenerator()
 
 ### Discovery Method
 Automated security scanning using custom evidence collection script revealed:
-
+![Screenshot showing hardcoded SECRET_KEY in settings.py](docs/images/secret_key.png)
 ```bash
 grep -nR "SECRET_KEY" newsportal > evidence-secret-grep.txt
 ```
@@ -317,34 +317,15 @@ detect-secrets scan --all-files
 
 ---
 
-## Disclosure Timeline
-
-- **Discovery**: October 20, 2025
-- **Vendor Notification**: [Pending]
-- **Vendor Response**: [Pending]
-- **Fix Released**: [Pending]
-- **Public Disclosure**: [90 days after vendor notification or fix release]
-
----
 
 ## Credit
 
-**Researcher**: [Your Name/Handle]  
-**Organization**: [Your Organization]  
-**Contact**: [Your Email]  
-**PGP Key**: [If applicable]
+**Researcher**: Nishant Kumar 
+**Organization**: Rashtriya Raksha University
+**Contact**: nishant.rru@gmail.com
 
 ---
 
-## Additional Notes
-
-### For CVE Request
-This vulnerability should receive its own CVE identifier as it represents a distinct security flaw with critical impact independent of other misconfigurations.
-
-### Responsible Disclosure
-This report should be submitted to the project maintainers through private channels before public disclosure. A 90-day disclosure window is recommended per industry standards.
-
----
 
 **Report Version**: 1.0  
 **Last Updated**: October 20, 2025
