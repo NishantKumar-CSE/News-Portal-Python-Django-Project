@@ -2,7 +2,7 @@
 
 ## Vulnerability Overview
 
-**Vulnerability Type**: Information Disclosure via Debug Mode  
+**Vulnerability Type**:Insertion of Sensitive Information Into Debugging Code
 **Severity**: HIGH  
 **CVSS 3.1 Score**: 7.5  
 **Discovery Date**: October 20, 2025  
